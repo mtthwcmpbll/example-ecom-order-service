@@ -27,7 +27,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = {
+    "FRAUD_DETECTION_SERVICE_URL=http://localhost:8087",
+    "PRODUCT_SERVICE_URL=http://localhost:8083",
+    "CUSTOMER_SERVICE_URL=http://localhost:8084"
+})
 @AutoConfigureMockMvc(addFilters = false)
 public class OrderServiceIntegrationTest {
 
